@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <head>
+            <link rel="stylesheet" href="../../static/css/bootstrap-theme.css">
+            <link rel="stylesheet" href="../../static/css/bootstrap.css">
+        </head>
+    </head>
+
+    <body style="background-color:#f0f0f0">
+        <div class="container" style="background-color:#ffffff">
+            <section id="header">
+                <div class="row" style="background-color:#314159">
+                    <div class="col-xs-12">
+                        <h2 class="text-center">Title</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="body">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label for="blogTitle">Title</label>
+                                <input id = "blogTitle" class="form-control" type="text" placeholder="Blog Title">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label for="blogContent">Content</label>
+                                <textarea id="blogContent" class="form-control" placeholder="Enter your bitch ass blog"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@{blogPost}" class="btn btn-default">Back</a>
+                    <input type="submit" class="btn btn-default">
+                </form>
+
+
+            </section>
+        </div>
+    </body>
+</html>
