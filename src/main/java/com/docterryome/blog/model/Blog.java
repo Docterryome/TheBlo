@@ -1,5 +1,7 @@
 package com.docterryome.blog.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -8,7 +10,17 @@ import java.util.Date;
 public class Blog {
     String title;
     String entry;
-    String username;
+
+    @DateTimeFormat(pattern = "MM/dd/YYYY")
+    Date date;
+
+    public Blog(String title, String entry, Date date) {
+        this.title = title;
+        this.entry = entry;
+        this.date = date;
+    }
+
+    public Blog(){};
 
     public String getTitle() {
         return title;
@@ -26,14 +38,6 @@ public class Blog {
         this.entry = entry;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public Date getDate() {
         return date;
     }
@@ -42,5 +46,4 @@ public class Blog {
         this.date = date;
     }
 
-    Date date;
 }

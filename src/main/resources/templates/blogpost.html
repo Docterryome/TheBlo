@@ -1,8 +1,9 @@
-<html xmlns:th="http://thymeleaf.com">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
-        <link rel="stylesheet" href="../../static/css/bootstrap.css">
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+        </link>
     </head>
-
+    <!-- TODO: Move Backgorund color into css file -->
     <body style="background-color:#f0f0f0">
         <div class="container" style="background-color:#ffffff">
         <!-- Add Title -->
@@ -12,7 +13,7 @@
                         <h2>Title</h2>
                     </div>
                     <div class="create col-xs-4">
-                        <a href="@{create}">
+                        <a href="createBlog.html" th:href="@{/create}">
                             <h3 class="daButton">Create</h3>
                         </a>
                     </div>
@@ -20,29 +21,27 @@
             </section>
 
             <section class="body">
-                <div class="blog-entry">
+                <div th:each="blog : ${blogs}" class="blog-entry">
                     <div class="row">
 
                     <div class="col-xs-12">
-                            <h3>Title</h3>
+                            <h3 th:text="${blog.title}">Title</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere vehicula fermentum. Aliquam tristique tellus quis scelerisque rutrum. Pellentesque in enim orci. Vestibulum vel sapien eget urna rutrum maximus. Etiam erat metus, luctus malesuada elit in, feugiat blandit augue. Duis pretium fermentum dolor eu suscipit. Praesent ac mauris condimentum ligula posuere sodales non nec dolor.
+                        <div  class="col-xs-12">
+                            <p th:text="${blog.entry}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere vehicula fermentum. Aliquam tristique tellus quis scelerisque rutrum. Pellentesque in enim orci. Vestibulum vel sapien eget urna rutrum maximus. Etiam erat metus, luctus malesuada elit in, feugiat blandit augue. Duis pretium fermentum dolor eu suscipit. Praesent ac mauris condimentum ligula posuere sodales non nec dolor.
 
                                 Nulla consequat scelerisque arcu, id condimentum diam ullamcorper et. Quisque ullamcorper mauris tellus, id varius elit suscipit vitae. Morbi vel elit in lacus blandit lacinia. Suspendisse potenti. Nulla facilisi. Praesent sollicitudin euismod facilisis. Morbi molestie vitae eros non pharetra. Nam tempus luctus massa sit amet hendrerit. Nunc mattis urna a dolor condimentum volutpat.</p>
                         </div>
                     </div>
                     <div class="row right-justified">
                         <div class="col-xs-12">
-                            <p class="text-right">HH:MM:SS  MM/DD/YY</p>
+                            <p class="text-right" th:text="${blog.date}">MM/DD/YY</p>
                         </div>
                     </div>
                 </div>
             </section>
-
-
         </div>
     </body>
 

@@ -1,8 +1,8 @@
 <html>
     <head>
         <head>
-            <link rel="stylesheet" href="../../static/css/bootstrap-theme.css">
-            <link rel="stylesheet" href="../../static/css/bootstrap.css">
+            <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+            </link>
         </head>
     </head>
 
@@ -18,10 +18,11 @@
             <section class="body">
                 <form>
                     <div class="form-group">
-                        <div class="row">
+                        <div class="row" th:object="${blog}" action="@{/blog/add}" method="POST" >
                             <div class="col-xs-4">
                                 <label for="blogTitle">Title</label>
-                                <input id = "blogTitle" class="form-control" type="text" placeholder="Blog Title">
+                                <input th:feild = "*{title}" id = "blogTitle" class="form-control" type="text" placeholder="Blog Title">
+                                </input>
                             </div>
                         </div>
                     </div>
@@ -30,15 +31,15 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label for="blogContent">Content</label>
-                                <textarea id="blogContent" class="form-control" placeholder="Enter your bitch ass blog"></textarea>
+                                <textarea id="blogContent" th:feild = "*{entry}" class="form-control" placeholder="Enter your blah blah here"></textarea>
                             </div>
                         </div>
                     </div>
-                    <a href="@{blogPost}" class="btn btn-default">Back</a>
-                    <input type="submit" class="btn btn-default">
+
+                    <a href="blogpost.html" th:href="@{/blog}" class="btn btn-default">Back</a>
+                        <input type="submit" class="btn btn-default">
+                    </input>
                 </form>
-
-
             </section>
         </div>
     </body>
