@@ -2,6 +2,7 @@ package com.docterryome.blog.controller;
 
 import com.docterryome.blog.model.Blog;
 import com.docterryome.blog.repository.GifRepository;
+import com.docterryome.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +24,12 @@ public class BlogController {
     @Autowired
     GifRepository gifRepository;
 
+    @Autowired
+    BlogService blogService;
+
     @RequestMapping("/blog")
     public String blogView(ModelMap modelMap){
-        modelMap.put("blogs", gifRepository.getAllBlogs());
+        modelMap.put("blogs", blogService.findAll());
         return "blogpost";
     }
 
@@ -38,7 +42,7 @@ public class BlogController {
     @RequestMapping(value = "/blog/add", method = RequestMethod.POST)
     public String addBlog(@ModelAttribute Blog blog){
         blog.setDate(new Date());
-
+        blogService.save(blog);
         return "redirect:/blog";
     }
 }
